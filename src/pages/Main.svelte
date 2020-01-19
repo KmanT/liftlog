@@ -27,13 +27,18 @@
   h2 {
     display: block;
   }
+
+  .dayslist {
+    height: 80%;
+    overflow-y:auto;
+  }
 </style>
 
 <div transition:fade={{ duration: 2000 }}>
   <h2>Welcome {$user.user.username}!</h2>
   <button on:click={selectToday}>Select Today</button>
   <div class="pure-g">
-    <div class="pure-u-1 pure-u-md-1-3">
+    <div class="pure-u-1 pure-u-md-1-3 dayslist">
       <DaysList bind:days />
     </div>
     <div class="pure-u-1 pure-u-md-2-3">

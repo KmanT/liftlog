@@ -6,10 +6,18 @@
   import { getDayExercises } from "../providers/api";
   export let days;
 
+  let index = 6;
+  let loadedDays = days.slice(0, 6);
+
   async function selectDay(day) {
     selectedDay.set(day);
     let u = get(user);
     exercises.set(await getDayExercises(u.token, u.user.ID, day));
+  }
+
+  function loadMore() {
+    loadedDays.concat(days.slice(index, index + 6));
+    index += 6;
   }
 </script>
 
@@ -39,4 +47,7 @@
       <span class="day-text">{formatDay(day)}</span>
     </div>
   {/each}
+  <!-- <div class="day-row" on:click={loadMore}>
+    <span class="day-text">Load More Days</span>
+  </div> -->
 {/if}

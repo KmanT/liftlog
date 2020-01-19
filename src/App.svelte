@@ -2,7 +2,7 @@
   import Icon from "svelte-awesome";
   import { faDumbbell } from "@fortawesome/free-solid-svg-icons";
   import PureCcs from "../node_modules/purecss/build/pure-min.css";
-  import PureGrids from "../node_modules/purecss/build/grids-responsive.css";
+  import PureGrids from "../node_modules/purecss/build/grids-responsive-min.css";
   import Modal from "svelte-simple-modal";
   import { cookiesToJson } from "./providers/cookies";
   import { user, cookiesAgreed, token, loggedIn } from "./store/auth";
