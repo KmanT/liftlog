@@ -19,6 +19,15 @@
 
   const { open } = getContext("simple-modal");
 
+  const modalStyle = {
+    bg: {
+      //position: "absolute",
+      "overflow-y": "auto",
+      "width": "100%",
+      "height": "100%"
+    }
+  };
+
   onMount(async () => {
     let u = get(user);
     let date = get(selectedDay);
@@ -26,15 +35,15 @@
   });
 
   function showAddExercise() {
-    open(AddExercise);
+    open(AddExercise, {}, modalStyle);
   }
 
   function showEditExercise(exercise, index) {
-    open(EditExercise, { exercise, index });
+    open(EditExercise, { exercise, index }, modalStyle);
   }
 
   function showConfirmDelete(exercise, index) {
-    open(ConfirmDelete, { exercise, index });
+    open(ConfirmDelete, { exercise, index, styleBg }, modalStyle);
   }
 </script>
 
