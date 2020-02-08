@@ -43,7 +43,7 @@
   }
 
   function showConfirmDelete(exercise, index) {
-    open(ConfirmDelete, { exercise, index, styleBg }, modalStyle);
+    open(ConfirmDelete, { exercise, index }, modalStyle);
   }
 </script>
 
