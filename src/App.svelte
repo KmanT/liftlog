@@ -43,6 +43,10 @@
     color: #fff;
   }
 
+  :global(.err-message) {
+    color: red;
+  }
+
   @media (min-width: 640px) {
     main {
       max-width: none;

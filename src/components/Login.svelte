@@ -8,9 +8,19 @@
     password: null
   };
 
+  let wrong = false;
+
   async function handleLogin() {
-    user.set(await login(userInfo.email, userInfo.password, userInfo.username));
-    loggedIn.set(true);
+    const res = await login(userInfo.email, userInfo.password, userInfo.username);
+
+    if (await res.message === "Invalid login credentials. Please try again") {
+      wrong = true;
+    } else {
+      user.set(await res);
+      wrong = false;
+      loggedIn.set(true); 
+    }
+    
   }
 
   function validateMessageEmail(event) {
@@ -48,4 +58,7 @@
 
     <input type="submit" value="Log in" class="pure-button" />
   </form>
+  {#if wrong}
+     <p class="err-message">Wrong username or password.</p>
+  {/if}
 </div>
