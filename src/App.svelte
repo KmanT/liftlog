@@ -12,6 +12,13 @@
 
   let cookies = cookiesToJson(document.cookie);
   cookiesAgreed.set(cookies.cookiesAgreed);
+
+  function logout() {
+    console.log(user);
+    loggedIn.set(false);
+    user.set({user: {username: ''}});
+    
+  }
 </script>
 
 <style>
@@ -21,7 +28,8 @@
   }
   .pure-menu-heading {
     color: #fff;
-    font-size: 1.5em;
+    font-size: 0.75em;
+    width: 80%;
   }
   .container {
     margin-top: 20%;
@@ -56,7 +64,8 @@
       margin-top: 10%;
     }
 
-    .days, .login-form {
+    .days,
+    .login-form {
       width: 75%;
     }
   }
@@ -65,10 +74,17 @@
 <Modal>
   <main>
     <div class="pure-menu pure-menu-horizontal pure-menu-fixed menu-bar">
-      <h1 class="pure-menu-heading">
-        <Icon data={faDumbbell} scale={2} />
-        LiftLog
-      </h1>
+      <div class="pure-menu-heading">
+        <h1>
+          <Icon data={faDumbbell} scale={2} />
+          LiftLog
+        </h1>
+        <div class="logout">
+          {#if $loggedIn}
+             <button class="pure-button" on:click={logout}>LOG OUT</button>
+          {/if}
+        </div>
+      </div>
     </div>
 
     <div class="container">
