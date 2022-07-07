@@ -19,7 +19,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "purecss": "^1.0.1",
     "sirv-cli": "^0.4.4",
     "svelte-awesome": "^2.2.1",
